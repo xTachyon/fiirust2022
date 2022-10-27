@@ -5,6 +5,14 @@ Characters are stored in a string using the UTF8 encoding. That means that a sin
 - [str docs](https://doc.rust-lang.org/std/primitive.str.html)
 - [String docs](https://doc.rust-lang.org/std/string/struct.String.html)
 
+To iterate over the characters of a string, use `.chars()`:
+```rs
+let s = "abc";
+for i in s.chars() {
+    println!("{}", i);
+}
+```
+
 # Reading and writing text files example
 
 ```rs
