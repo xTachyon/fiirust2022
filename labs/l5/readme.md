@@ -42,6 +42,8 @@ Implement [life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Have a 
 
 Use [blinker (period 2)](life.game) and [pulsar (period 3)](life2.game) to test it. Simulate at least 3 transitions.
 
+Hint: you can use a type alias for the matrix.
+
 ## Bonus
 *Serializing* is the process of writing in-memory objects (structs, enums, simple types) into a format that can be *deserialized* later in order to yield the same object the process started with. The format is usually agnostic when it comes to processor architecture.
 
