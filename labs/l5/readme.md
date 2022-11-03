@@ -14,7 +14,7 @@ Arrays:
 let array = [1, 2, 3];
 let array: [u32; 3] = [1, 2, 3];
 let array: [u32; 3] = [0; 3];
-let matrix = [[' '; 10]; 10]; // 10x10 char array initialized with space
+let matrix = [[' '; 10]; 10]; // 10x10 char array initialized with spaces
 ```
 
 # Problems
