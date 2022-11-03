@@ -45,7 +45,7 @@ Use [blinker (period 2)](life.game) and [pulsar (period 3)](life2.game) to test 
 *Serializing* is the process of writing in-memory objects (structs, enums, simple types) into a format that can be *deserialized* later in order to yield the same object the process started with. The format is usually agnostic when it comes to processor architecture.
 
 [Serde](https://crates.io/crates/serde) is a crate used for serializing and deserializing Rust types in a plethora of formats, the most used being JSON.
-To use, go to `Cargo.toml` and add the following under `[dependencies]`:
+To use it, go to `Cargo.toml` and add the following under `[dependencies]`:
 ```toml
 serde = "1"
 serde_derive = "1"
@@ -56,12 +56,13 @@ Serde is made out of several crates, each with its own purpose.
 2. `serde_derive` is the crate that implement the macro that maps Rust's native types to something more generic
 3. `serde_json` is the crate that implements the JSON format, using the other two
 
-This crates use Rust's powerful type system to transform jsons from and to strongly typed structs, enums, arrays, maps, etc. Usually, JSON objects map to a struct, JSON arrays map to an array or a vector, bools to bools, numbers to integers or floats, strings to strings.
+This crates use Rust's powerful type system to transform JSONs from and to strongly typed structs, enums, arrays, maps, etc. Usually, JSON objects map to a struct, JSON arrays map to an array or a vector, bools to bools, numbers to integers or floats, strings to strings.
 
 Additionally, `Option`s are useful because they say that a field can be missing without erroring out.
 
 Example:
 ```rs
+use std::fs;
 use serde_derive::Deserialize;
 
 #[derive(Debug, Deserialize)]
@@ -92,4 +93,7 @@ Mapping:
 ![Json example](./json_example.png)
 
 ## P4
-Go back to P1 and solve it using JSONS. Each line now contains a JSON that describes the student.
+Go back to P1 and solve it using JSONS. Each line now contains a JSON that describes the student, like so:
+```json
+{ "name": "Constantin", "phone": "0711111111", "age": 21 }
+```
