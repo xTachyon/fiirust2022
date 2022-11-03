@@ -14,6 +14,7 @@ Arrays:
 let array = [1, 2, 3];
 let array: [u32; 3] = [1, 2, 3];
 let array: [u32; 3] = [0; 3];
+let matrix = [[' '; 10]; 10]; // 10x10 char array initialized with space
 ```
 
 # Problems
@@ -30,7 +31,7 @@ Find and print the oldest and the youngest student.
 
 ## P2
 
-Create a canvas structure that can hold 10x50 characters that can be "painted" on, and the corresponsing functions, so [this](p2.rs) code compiles and runs properly. The canvas will be initialized with spaces, and have the possibility to set pixels knowing the coordinates and the values in the (x, y, ascii value) format, and print the canvas at the end.
+Create a canvas structure that can hold (10 lines)x(50 characters each) that can be "painted" on, and the corresponsing functions, so [this](p2.rs) code compiles and runs properly. The canvas will be initialized with spaces, and have the possibility to set pixels knowing the coordinates and the values in the (x, y, ascii value) format, and print the canvas at the end.
 
 ## P3
 Implement [life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). Have a matrix of constant values of elements (bool, u8, chars) that are read from a file, each element representing a cell that is either dead or alive. Each cell has 8 neighbors, and the number of neighbors it has contributes to whenever if it survives or not, with the following rules:
