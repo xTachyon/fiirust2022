@@ -120,6 +120,6 @@ cargo run -- --name Kratos -c2
 ```
 
 ## P2
-Go back to P1 and implement a command line interface that can support the following args:
+Go back to P1 and implement a command line interface that supports the following args:
 - file: the name of the file to print the result to. If empty, print to stdout
 - print_max: the maximum number of entries to print at the end. If empty, print all of them
