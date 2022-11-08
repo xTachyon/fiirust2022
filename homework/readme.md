@@ -14,9 +14,9 @@ Output examples: [1](table1.txt), [2](table2.txt).
 
 Command line options:
 - the input file
-- the output file or stdout
-- if there's a separating line between content lines, like in the [second example](table2.txt)
-- how to align the cells (left, center, right)
+- the output file or stdout (default: stdout)
+- if there's a separating line between content lines, like in the [second example](table2.txt) (default: no)
+- how to align the cells (left, center, right) (default: left)
 
 
 # Print Reddit posts
@@ -25,7 +25,7 @@ Download the news feed from a subreddit from Reddit ([ex](https://www.reddit.com
 
 Command line options:
 - the name of the subreddit
-- the sort order: hot, new, top
+- the sort order: hot, new, top (default: hot)
 
 Bonus: print only the new posts every N seconds (keep a list of posts that have already been printed).
 
@@ -38,8 +38,8 @@ Create a tool that searches for a substring in every file in a directory and eve
 
 Command line options:
 - string to search for
-- max number of lines (after which the application exits)
-- ignore case
-- only count (print only the number of matches per file, without the lines)
+- max number of lines (after which the application exits) (default: infinite)
+- ignore case (default: no)
+- only count (print only the number of matches per file, without the lines) (default: no)
 
 Bonus: have an option to allow for [regex](https://crates.io/crates/regex) searching.
