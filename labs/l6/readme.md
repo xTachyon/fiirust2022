@@ -54,72 +54,38 @@ Notice that the output is aligned so that the count is on the same column. Use a
 
 ## Bonus
 
-[clap](https://crates.io/crates/clap) is a crate for parsing command line arguments into Rust types that can be more easily processed afterwards.
+[ureq](https://crates.io/crates/ureq) is a crate for making HTTP requests that aims to be simple to use.
 
-`Cargo.toml`:
-```toml
-clap = { version = "4", features = ["derive"] }
-```
-
-The convention for arguments is as following: subcommands will be spelled as-in (ex: `run`), short arguments are spelled with a single letter and with a dash (ex: `-f`), and long arguments are spelled as-is with two dashes (ex: `--file`). Usually, an argument is by default considered long, with an optional short argument that does the same thing (ex: `-f` and `--file` can be the same). A single `--` usually means that everything past this point will be passed to the application that will be invoked next.
-
-Example code (modified from the [docs](https://docs.rs/clap/latest/clap/#example)):
+Example usage:
 ```rs
-use clap::Parser;
-
-#[derive(Parser)]
-#[command(version, about = "args parsing example")]
-struct Args {
-   /// Name of the person to greet
-   #[arg(short, long, default_value = "you 👀")]
-   name: String,
-
-   /// Number of times to greet
-   #[arg(short, long, default_value_t = 1)]
-   count: u8,
-}
-
-fn main() {
-   let args = Args::parse();
-
-   for _ in 0..args.count {
-       println!("Hello {}!", args.name)
-   }
+fn main() -> Result<(), ureq::Error> {
+    let body: String = ureq::get("http://example.com")
+        .call()?
+        .into_string()?;
+    Ok(())
 }
 ```
-Arguments are usually parsed into a struct, but it's also possible to parse them into enum, especially when we're working with subcommands.
-
-```rs
-#[command(version, about = "args parsing example")]
-```
-In this example, we tell `clap` that:
-- we want to generate a version command (that by default prints the version from `Cargo.toml`)
-- we give it a string to print about what the application does (in the help command)
-
-```rs
-/// Number of times to greet
-#[arg(short, long, default_value_t = 1)]
-count: u8,
-```
-We tell it:
-- the description of the command that will be printed in help
-- that we want short and long command versions
-- if the command is not found, then the default value is 1. Note that we could've done the same thing with an `Option<u8>`
-
-After this, we can use arguments as a normal Rust struct. The `parse` functionw will exit the application if the parsing triggered any error.
-
-Invocation example:
-```
-./target/debug/hello_world.exe -h
-./target/debug/hello_world.exe -nDragos -c 4
-```
-To run it through `cargo`, we need to pass it `--`, and then the arguments for our app:
-```
-cargo run -- -nDragos -c 4
-cargo run -- --name Kratos -c2
-```
+This code sends a `GET` request to `example.com` and effectively downloads the page, converting it into a string. For this example, the string is just HTML markup code, but you'll usually get JSON/XML strings when calling web APIs.
 
 ## P2
-Go back to P1 and implement a command line interface that supports the following args:
-- file: the name of the file to print the result to. If empty, print to stdout
-- print_max: the maximum number of entries to print at the end. If empty, print all of them
+
+Download the information of all emojis from [emojihub](https://emojihub.herokuapp.com/api/all). The JSON has the following format:
+```json
+[
+   // ...
+    {
+        "name": "slice of pizza ≊ pizza",
+        "category": "food and drink",
+        "group": "food prepared",
+        "htmlCode": [
+            "&#127829;"
+        ],
+        "unicode": [
+            "U+1F355"
+        ]
+    },
+    // ...
+]
+```
+
+Use `serde_json` as described in the [previous lab](../l5/readme.md#bonus) to parse this JSON. Group emojis by their `group` (use a map), and print to a file every group and either the name of the emojis, or the actual unicode emoji.
