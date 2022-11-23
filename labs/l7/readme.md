@@ -119,3 +119,7 @@ cargo run -- --name Kratos -c2
 
 ## P3
 Go back to P2 and replace the hand written command line parser with clap.
+
+## P4
+
+Add an option to the command line to decode a hex text file into its original content and implement the decoding.
