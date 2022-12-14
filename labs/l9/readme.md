@@ -85,6 +85,7 @@ Now we need a web server to serve the code to a browser. We'll use the one that 
 ```
 python -m http.server
 ```
+If the `python` command doesn't work, also try: `python3`, `py`, `py -3`.
 
 Now you should be able to access the [site](http://localhost:8000) from the browser.
 
