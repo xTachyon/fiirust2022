@@ -1,0 +1,18 @@
+[package]
+name = "fiirust_wasm"
+version = "0.1.0"
+authors = ["T"]
+edition = "2018"
+# description = "FIIRUST"
+# license = "MIT"
+# repository = "https://github.com/xTachyon/fiirust2022"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+wasm-bindgen = "0.2.63"
+
+[profile.release]
+# Tell `rustc` to optimize for small code size.
+opt-level = "s"

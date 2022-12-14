@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>FIIRUST</title>
+</head>
+
+<style>
+  textarea {
+    height: 200px;
+    width: 500px;
+    font-size: 14pt;
+  }
+  body {
+    min-width: 700px;
+  }
+  input[type=button] {
+    font-size: 16pt;
+    padding: 5pt;
+    margin-top: 25px;
+  }
+  label {
+    margin: 25px;
+    font-size: 20pt;
+  }
+  hr {
+    min-width: 100%;
+  }
+  #whatever {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+</style>
+
+<body>
+  <script src="./index.js" type="module"></script>
+
+  <form>
+    <div id="whatever">
+      <label>Input:</label><br>
+      <textarea type="text" id="input_text" name="input_text"></textarea>
+      <br>
+      <label>Output:</label>
+      <br>
+      <textarea type="text" id="output_text" name="output_text" readonly></textarea>
+      <br>
+      <input type="button" value="Convert" id="submit">
+      <hr>
+      
+      <label>Convert file:</label>
+      <input type="file" id="file_upload">
+    </div>
+  </form>
+</body>
+
+</html>
