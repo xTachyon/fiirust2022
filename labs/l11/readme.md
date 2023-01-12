@@ -78,7 +78,7 @@ trait ArchiveSerializer {
 }
 ```
 This trait is supposed to be implemented for all the types that can be written into an archive:
-- for buffer and string, implement the trait manually
+- for buffer, string and vector  implement the trait manually
 - for numbers, make a declarative macro that takes a type as argument, and implements the trait using the `to_ne_bytes` function to turn the number into bytes
 - for structs, make a procedural macro that iterates over the fields and calls the `serialize` function for each field
 
