@@ -17,7 +17,7 @@ Procedural macros helpers:
 2. proc_macro2: extends the functionality of the `proc_macro` crate offered by the compiler
 3. quote: easily transform hardcoded code into a token stream
 
-Example:
+Example (the full impl [here](hello_world)):
 ```rs
 use proc_macro2::TokenStream;
 use syn::{DeriveInput, Data};
