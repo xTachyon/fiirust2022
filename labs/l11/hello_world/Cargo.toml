@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "hello_world",
+    "hello_world_lib",
+]
